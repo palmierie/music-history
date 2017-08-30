@@ -18,8 +18,45 @@ for (var i = 0; i < removeChar.length; i++) {
 
 var content = document.getElementById("main-content");
 var newContent = [];
-songs.forEach(function(arrSong) {
-  newContent += `<div><ul class="list-inline"><li>${arrSong}</li></ul></div>`;
-}, this);
+displaySongs(songs);
 
-content.innerHTML = newContent;
+function displaySongs(songs) {
+  content.innerHTML = "";
+  newContent = "";
+  songs.forEach(function(arrSong) {
+    newContent += `<div><ul class="list-inline"><li>${arrSong}</li></ul></div>`;
+  }, this);
+  content.innerHTML = newContent;
+}
+
+
+var addMusicBtn = document.getElementById("add-music-btn"),
+    listMusicBtn = document.getElementById("list-music-btn"),
+    addMusicDiv = document.getElementById("add-music"),
+    listMusicDiv = document.getElementById("list-music"),
+    addNewMusic = document.getElementById("add-new-music-btn"),
+    newSongName = document.getElementById("songname"),
+    newArtist = document.getElementById("artist"),
+    newAlbum = document.getElementById("album"),
+    song = "";
+
+
+addMusicBtn.addEventListener("click", function(){
+  listMusicDiv.classList.remove("hidden");
+  listMusicDiv.classList.add("hidden");
+  addMusicDiv.classList.remove("hidden");
+});
+
+listMusicBtn.addEventListener("click", function(){
+  addMusicDiv.classList.remove("hidden");
+  addMusicDiv.classList.add("hidden");
+  listMusicDiv.classList.remove("hidden");
+});
+
+addNewMusic.addEventListener("click", function(){
+  song = "";
+  song += `${newSongName.value} by ${newArtist.value} on the album ${newAlbum.value}`;
+  songs.push(song);
+  console.log('songs', songs);
+  displaySongs(songs);
+});

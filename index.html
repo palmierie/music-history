@@ -16,14 +16,23 @@
     <header>
       <nav>
         <ul class="nav nav-pills" role="navigation">
-          <li role="presentation" class="active"><a href="#">View Music</a></li>
-          <li role="presentation"><a href="#">Add Music</a></li>
+          <li role="presentation" class="active"><a href="#" id="list-music-btn">List Music</a></li>
+          <li role="presentation"><a href="#" id="add-music-btn">Add Music</a></li>
           <li role="presentation"><a href="#">Profile</a></li>
         </ul>
       </nav>
       <h1>Music History</h1>
     </header>
-    <div class="row">
+    <!-- Add Music View -->
+    <div class="row hidden" id="add-music">
+      <input type="text" placeholder="songname" id="songname"><br>
+      <input type="text" placeholder="artist" id="artist"><br>
+      <input type="text" placeholder="album" id="album"><br>
+      <input type="button" value="Add" id="add-new-music-btn">
+    </div>
+
+    <!-- List Music View -->
+    <div class="row" id="list-music">
       <div class="col-md-4">
         <form action="" class="form-horizontal">
           <h5>Slider</h5>
